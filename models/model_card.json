@@ -1,0 +1,59 @@
+{
+  "model_name": "GlaucomaEfficientNetB3",
+  "architecture": "EfficientNet-B3",
+  "checkpoint": "models\\glaucoma_efficientnet_b3.pth",
+  "image_size": 300,
+  "imagenet_mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "imagenet_std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "dropout_rate": 0.4,
+  "calibration": {
+    "method": "temperature_scaling",
+    "temperature": 0.9276284800658359,
+    "threshold": 0.31970100459364914,
+    "target_sensitivity": 0.9
+  },
+  "risk_tiers": {
+    "High Risk": {
+      "min_prob": 0.6,
+      "action": "Urgent ophthalmology referral within 2 weeks"
+    },
+    "Moderate Risk": {
+      "min_prob": 0.3,
+      "action": "Ophthalmology review within 3 months"
+    },
+    "Low Risk": {
+      "min_prob": 0.0,
+      "action": "Routine annual screening"
+    }
+  },
+  "test_performance": {
+    "auc_roc": 0.9991869918699187,
+    "sensitivity": 0.9878048780487805,
+    "specificity": 0.9666666666666667,
+    "f1_score": 0.9878048780487805,
+    "brier_score": 0.017078748394835568,
+    "fn_count": 1,
+    "test_n": 112
+  },
+  "training_dataset": "HYGD (Hillel Yaffe Glaucoma Dataset, PhysioNet)",
+  "train_images": 518,
+  "val_images": 111,
+  "test_images": 112,
+  "preprocessing": "CLAHE (adaptive tileGridSize) + green channel sharpening",
+  "known_limitations": [
+    "Single-site training data (Israeli hospital population)",
+    "Cross-site generalisation not validated \u2014 local recalibration required",
+    "Risk score based on fundus image structural appearance only",
+    "IOP, visual fields, and OCT RNFL not incorporated"
+  ],
+  "intended_use": "Screening support tool \u2014 not a clinical diagnosis",
+  "requires_ophthalmologist_review": true
+}

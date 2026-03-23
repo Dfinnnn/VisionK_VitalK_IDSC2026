@@ -1,0 +1,32 @@
+# ── Large data — never commit
+HYGD_Glaucoma/
+processed/
+
+# ── Model weights (large binary)
+*.pth
+*.pt
+
+# ── Python environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+
+# ── Generated PNG images (reproducible from pipeline)
+results/*.png
+results/gradcam/
+models/training_curves.png
+
+# ── IDE
+.idea/
+*.iml
+
+# ── OS
+.DS_Store
+Thumbs.db
+
+# ── Streamlit cache
+.streamlit/
