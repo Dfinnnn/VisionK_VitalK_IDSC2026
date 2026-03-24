@@ -9,3 +9,6 @@ scipy
 matplotlib
 shap
 lightgbm
+streamlit
+joblib
+reportlab
