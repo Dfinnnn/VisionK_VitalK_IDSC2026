@@ -2,7 +2,7 @@ torch
 torchvision
 numpy
 pandas
-opencv-python
+opencv-python-headless
 Pillow
 scikit-learn
 scipy
