@@ -238,7 +238,7 @@ RETRAIN_MODEL = False
 # FN=1. Retraining risks a worse result from a different random split.
 # Only set True if you intentionally want to retrain.
 
-RUN_KFOLD = True
+RUN_KFOLD = False
 # False → skip K-Fold entirely (Section 9 prints a notice and moves on)
 # True  → run 5-fold CV (~3-4h on T4 GPU), saves kfold_results.csv
 # WHY KEEP FALSE until report time: K-Fold trains 5 throwaway models.
@@ -1665,6 +1665,9 @@ lgb_model = lgb.LGBMClassifier(n_estimators=LGB_N_ESTIMATORS, max_depth=LGB_MAX_
                                learning_rate=LGB_LEARNING_RATE, subsample=LGB_SUBSAMPLE,
                                class_weight="balanced", random_state=42, verbose=-1)
 lgb_model.fit(X_tr, y_tr)
+import joblib
+joblib.dump(lgb_model, os.path.join(MODELS_DIR, "lgb_shap_companion.pkl"))
+print(f"  LightGBM companion saved -> {MODELS_DIR}/lgb_shap_companion.pkl")
 lgb_auc = roc_auc_score(y_te, lgb_model.predict_proba(X_te)[:, 1])
 print(f"  LightGBM AUC = {lgb_auc:.4f}  (companion model for SHAP only)")
 
