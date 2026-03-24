@@ -1360,7 +1360,7 @@ def page_transparency():
     st.markdown("""
     <div class="page-hero">
         <h1>Model Transparency</h1>
-        <p>Test-set performance, calibration, explainability evidence, and known limitations</p>
+        <p>Test-set performance, calibration, and known limitations</p>
     </div>""", unsafe_allow_html=True)
 
     mc   = engine.get_model_card()
