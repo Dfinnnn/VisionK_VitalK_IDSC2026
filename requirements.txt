@@ -9,6 +9,7 @@ scipy
 matplotlib
 shap
 lightgbm
-streamlit
 joblib
 reportlab
+streamlit==1.32.0
+altair==4.2.2
