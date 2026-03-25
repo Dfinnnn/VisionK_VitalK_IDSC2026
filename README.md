@@ -26,7 +26,7 @@ Green Channel Sharpening: Uses an unsharp mask to highlight structural RNFL info
 Quality Filter: Automatically excludes images with an HYGD quality score < 3.0.
 
 STEP 5: PERFORMANCE & DUAL XAI FRAMEWORK
-Metrics: Achieved a test AUC of 0.9980 and a 5-fold mean AUC of 0.9846 +- 0.0064.
+Metrics: Achieved a test AUC of 0.9992 and a 5-fold mean AUC of 0.9846 +- 0.0064.
 Interpretability: Outputs Grad-CAM heatmaps and SHAP waterfalls to verify the model focuses on clinical markers (Optic Disc/RNFL) rather than artifacts.
 
 You may refer to this link to deploy our app Vision K on Streamlit: 
